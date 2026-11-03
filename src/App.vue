@@ -36,17 +36,12 @@ export default {
 
       try {
         const response = await axios.get(
-          'https://quotes15.p.rapidapi.com/quotes/random/?language_code=en',
-          {
-            headers: {
-              'x-rapidapi-host': 'quotes15.p.rapidapi.com',
-              'x-rapidapi-key': process.env.VUE_APP_RAPIDAPI_KEY
-            }
-          }
+          'https://dummyjson.com/quotes/random'
         )
 
-        this.quote = response.data.content
-        this.author = response.data.originator.name
+        this.quote = response.data.quote
+        this.author = response.data.author
+
       } catch (error) {
         console.error('Error fetching quote:', error)
         this.quote = 'Oops! Something went wrong.'
